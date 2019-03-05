@@ -21,9 +21,9 @@
 
     <!-- Custom styles for this template-->
     <link href="../../Public/css/sb-admin.css" rel="stylesheet">
-
-
-
+    
+    <!--Sweet Alert-->
+    <link href="../../Public/bootstrap-sweetalert/dist/sweetalert.css" rel="stylesheet" />
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../Public/vendor/jquery/jquery.min.js"></script>
@@ -43,6 +43,9 @@
     <!-- Demo scripts for this page-->
     <script src="../../Public/js/demo/datatables-demo.js"></script>
     <script src="../../Public/js/demo/chart-area-demo.js"></script>
+
+     <!--Sweet Alert javascript-->
+    <script src="../../Public/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body id="page-top">
     <form runat="server">
@@ -94,14 +97,14 @@
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a class="nav-link" href="../../Views/PosiblesClientes/PosiblesClientes.aspx">
+                        <i class="fas fa-fw fa-address-book"></i>
                         <span>Posibles Clientes</span>
                     </a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <i class="fas fa-fw fa-book"></i>
                         <span>Contactos</span>
                     </a>
                 </li>

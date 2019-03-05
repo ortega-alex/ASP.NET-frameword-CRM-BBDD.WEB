@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Connection.cs" />
+    <Compile Include="BL\PosibleClietneBl.cs" />
     <Compile Include="BL\UsuarioBl.cs" />
+    <Compile Include="Models\PosibleCliente.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

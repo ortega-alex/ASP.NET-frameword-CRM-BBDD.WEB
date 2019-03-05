@@ -1656,10 +1656,12 @@
     <Content Include="Public\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Views\Index\Index.aspx" />
     <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\PosiblesClientes\PosiblesClientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PosiblesClientesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resoutces\Template\Template.Master.Master.cs">
       <DependentUpon>Template.Master.Master</DependentUpon>
@@ -1681,6 +1683,13 @@
     </Compile>
     <Compile Include="Views\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PosiblesClientes\PosiblesClientes.aspx.cs">
+      <DependentUpon>PosiblesClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PosiblesClientes\PosiblesClientes.aspx.designer.cs">
+      <DependentUpon>PosiblesClientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
