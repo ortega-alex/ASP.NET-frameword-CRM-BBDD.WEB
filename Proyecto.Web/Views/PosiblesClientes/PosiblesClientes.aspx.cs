@@ -1,7 +1,6 @@
 ﻿using Proyecto.Logica.Models;
 using Proyecto.Web.Controllers;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
 
@@ -9,6 +8,9 @@ namespace Proyecto.Web.Views.PosiblesClientes
 {
     public partial class PosiblesClientes : System.Web.UI.Page
     {
+
+        #region Metodos y funciones
+
         /// <summary>
         /// Obtiene cunsuta posibles clientes
         /// </summary>
@@ -32,6 +34,10 @@ namespace Proyecto.Web.Views.PosiblesClientes
             }
         }
 
+        #endregion
+
+        #region Eventos
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -46,8 +52,8 @@ namespace Proyecto.Web.Views.PosiblesClientes
             {
                 int options = string.IsNullOrEmpty(txtId.Text) ? 1 : 2; ;
                 string stMensaje = string.Empty;
-                if (string.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese el nombre ,";
-                if (string.IsNullOrEmpty(txtApellido.Text)) stMensaje += " Ingrese los apellidos ,";
+                if (string.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese nombres ,";
+                if (string.IsNullOrEmpty(txtApellido.Text)) stMensaje += " Ingrese apellidos ,";
                 if (!string.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
 
                 PosibleCliente posibleCliente = new PosibleCliente
@@ -104,7 +110,8 @@ namespace Proyecto.Web.Views.PosiblesClientes
             catch (Exception ex)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "messaje", "<script> swal('Error!', '" + ex.Message + "!', 'error')</script>");
-                   }
+            }
         }
+        #endregion
     }
 }
