@@ -21,7 +21,7 @@
 
     <!-- Custom styles for this template-->
     <link href="../../Public/css/sb-admin.css" rel="stylesheet">
-    
+
     <!--Sweet Alert-->
     <link href="../../Public/bootstrap-sweetalert/dist/sweetalert.css" rel="stylesheet" />
 
@@ -44,7 +44,7 @@
     <script src="../../Public/js/demo/datatables-demo.js"></script>
     <script src="../../Public/js/demo/chart-area-demo.js"></script>
 
-     <!--Sweet Alert javascript-->
+    <!--Sweet Alert javascript-->
     <script src="../../Public/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body id="page-top">
@@ -83,11 +83,16 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../Views/Login/Login.aspx">
-                        <i class="fa fa-fw fa-sign-in-alt"> Salir </i>
-                    </a>
+                <li class="nav-item mr-1">
+                    <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>
                 </li>
+                <li class="nav-item">
+                    <asp:LinkButton runat="server" ID="btnSalir" OnClick="btnSalir_Click" CssClass="btn btn-danger">
+                        <i class="fa fa-fw fa-sign-in-alt"> </i>
+                        Salir
+                    </asp:LinkButton>
+                </li>
+
             </ul>
 
         </nav>
@@ -104,7 +109,7 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-book"></i>                        
+                        <i class="fas fa-fw fa-book"></i>
                         <span>Contactos</span>
                     </a>
                 </li>

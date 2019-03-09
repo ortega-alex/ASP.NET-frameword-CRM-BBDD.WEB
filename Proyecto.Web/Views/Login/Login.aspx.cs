@@ -1,6 +1,7 @@
 ﻿using Proyecto.Logica.Models;
 using Proyecto.Web.Controllers;
 using System;
+using System.Web;
 
 namespace Proyecto.Web.Views.Login
 {
@@ -8,10 +9,21 @@ namespace Proyecto.Web.Views.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Session["sessionEmail"] = txtEmal.Text;
+
             //ctrl + k +c == comentario
             //ctrl + k + u == descomentar
             //if (!IsPostBack)
             //    ClientScript.RegisterStartupScript(this.GetType(), "messaje", "<script> swal('Buen trabajo!', 'Se realizo el proceso con exito!', 'success')</script>");
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["cookieEmail"] != null)
+                {
+                    txtEmal.Text = Request.Cookies["cookieEmail"].Value.ToString();
+                    chkRecordar.Checked = true;
+                }
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -35,7 +47,22 @@ namespace Proyecto.Web.Views.Login
                 bool blBandera = loginController.getValidarUsuario(usuario);
 
                 if (blBandera)
-                    Response.Redirect("../Index/Index.aspx"); //redirecciona
+                {
+                    if (chkRecordar.Checked)
+                    {
+                        //creo un objeto cookie
+                        HttpCookie cookie = new HttpCookie("cookieEmail", txtEmal.Text);
+                        cookie.Expires = DateTime.Now.AddDays(2); //adiciona tiempo de vida
+                        Response.Cookies.Add(cookie); //se agrega a la coleccion de cookies
+                    } else
+                    {
+                        HttpCookie cookie = new HttpCookie("cookieEmail", txtEmal.Text);
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies.Add(cookie);
+                    }
+                    //Response.Redirect("../Index/Index.aspx"); //redirecciona
+                    Response.Redirect("../Index/Index.aspx?strEmail=" + txtEmal.Text); //parametros por url
+                } 
                 else
                     throw new Exception("Usuario o Password incorecto");
             }
