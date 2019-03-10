@@ -1662,6 +1662,7 @@
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\PosiblesClientes\PosiblesClientes.aspx" />
     <Content Include="Views\RecuperarPassword\RecuperarPassword.aspx" />
+    <Content Include="Views\Registro\Registro.aspx" />
     <Content Include="Views\Tareas\Tareas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1669,6 +1670,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PosiblesClientesController.cs" />
     <Compile Include="Controllers\RecuperarPasswordController.cs" />
+    <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resoutces\Template\Template.Master.Master.cs">
@@ -1705,6 +1707,13 @@
     </Compile>
     <Compile Include="Views\RecuperarPassword\RecuperarPassword.aspx.designer.cs">
       <DependentUpon>RecuperarPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registro\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Registro\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tareas\Tareas.aspx.cs">
       <DependentUpon>Tareas.aspx</DependentUpon>
@@ -1895,7 +1904,10 @@
       <Name>Proyecto.Logica</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Public\Img\" />
+    <Folder Include="Public\Temp\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

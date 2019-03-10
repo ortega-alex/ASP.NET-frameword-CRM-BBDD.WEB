@@ -50,8 +50,7 @@
 <body id="page-top">
     <form runat="server">
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-            <a class="navbar-brand mr-1" href="../../Views/Index/Index.aspx"></a>
+            <a class="navbar-brand mr-1" href="../../Views/Index/Index.aspx">CRM</a>
 
             <a class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
                 <i class="fas fa-bars"></i>
@@ -82,17 +81,19 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li>
+                </li>               
                 <li class="nav-item mr-1">
                     <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mr-1">
                     <asp:LinkButton runat="server" ID="btnSalir" OnClick="btnSalir_Click" CssClass="btn btn-danger">
                         <i class="fa fa-fw fa-sign-in-alt"> </i>
                         Salir
                     </asp:LinkButton>
                 </li>
-
+                 <li class="nav-item">
+                    <asp:Image runat="server" ID="imgCuenta" CssClass="rounded-circle mx-auto d-block logo" Height="45px" Width="45px" />            
+                </li>
             </ul>
 
         </nav>

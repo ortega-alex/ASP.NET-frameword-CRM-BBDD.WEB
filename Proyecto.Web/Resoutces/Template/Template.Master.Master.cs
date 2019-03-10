@@ -8,17 +8,16 @@ namespace Proyecto.Web.Resoutces.Template
         {
             if (!IsPostBack)
             {
-
                 String[] stEmail = null;
                 if (Session["sessionEmail"] != null)
                 {
                     stEmail = Session["sessionEmail"].ToString().Split('@');
                     lblUsuario.Text = stEmail[0];
+                    imgCuenta.ImageUrl = "~/Public/Img/" + Session["sessionEmail"].ToString() + ".jpg";
                 } else
                 {
                     Response.Redirect("../../Views/Login/Login.aspx");
-                }
-
+                }               
             }
         }
 
