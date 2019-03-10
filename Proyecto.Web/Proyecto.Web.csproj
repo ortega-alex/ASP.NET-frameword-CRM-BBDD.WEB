@@ -1657,15 +1657,18 @@
     <Content Include="Public\vendor\jquery\jquery.min.js" />
     <Content Include="Public\vendor\jquery\jquery.slim.js" />
     <Content Include="Public\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Resoutces\Images\tux.gif" />
     <Content Include="Views\Index\Index.aspx" />
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\PosiblesClientes\PosiblesClientes.aspx" />
+    <Content Include="Views\RecuperarPassword\RecuperarPassword.aspx" />
     <Content Include="Views\Tareas\Tareas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PosiblesClientesController.cs" />
+    <Compile Include="Controllers\RecuperarPasswordController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resoutces\Template\Template.Master.Master.cs">
@@ -1695,6 +1698,13 @@
     </Compile>
     <Compile Include="Views\PosiblesClientes\PosiblesClientes.aspx.designer.cs">
       <DependentUpon>PosiblesClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecuperarPassword\RecuperarPassword.aspx.cs">
+      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RecuperarPassword\RecuperarPassword.aspx.designer.cs">
+      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tareas\Tareas.aspx.cs">
       <DependentUpon>Tareas.aspx</DependentUpon>
