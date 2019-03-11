@@ -30,5 +30,7 @@ namespace Proyecto.Logica.Entidades
         public virtual DbSet<Prioridad> Prioridad { get; set; }
         public virtual DbSet<Tarea> Tarea { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<Evento> Evento { get; set; }
+        public virtual DbSet<Relacionado> Relacionado { get; set; }
     }
 }

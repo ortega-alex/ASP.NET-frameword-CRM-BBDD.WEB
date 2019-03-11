@@ -122,6 +122,13 @@
                     </a>
                 </li>
 
+                   <li class="nav-item active">
+                    <a class="nav-link" href="../../Views/Evento/Evento.aspx">
+                        <i class="fas fa-fw fa-address-card"></i>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+
             </ul>
 
             <div id="content-wrapper">

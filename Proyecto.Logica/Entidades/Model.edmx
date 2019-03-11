@@ -4,13 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbGeneralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbGeneralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EstadoTarea">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Relacionado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ubicacion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TodoDia" Type="char" MaxLength="1" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PosibleCliente">
           <Key>
@@ -29,6 +41,13 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Relacionado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Tarea">
           <Key>
@@ -55,6 +74,18 @@
           <Property Name="password" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="img" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="fk_evento_relacionado">
+          <End Role="Relacionado" Type="Self.Relacionado" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relacionado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="Relacionado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_tarea_estado">
           <End Role="EstadoTarea" Type="Self.EstadoTarea" Multiplicity="1" />
           <End Role="Tarea" Type="Self.Tarea" Multiplicity="*" />
@@ -81,10 +112,16 @@
         </Association>
         <EntityContainer Name="dbGeneralModelStoreContainer">
           <EntitySet Name="EstadoTarea" EntityType="Self.EstadoTarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PosibleCliente" EntityType="Self.PosibleCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prioridad" EntityType="Self.Prioridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relacionado" EntityType="Self.Relacionado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarea" EntityType="Self.Tarea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_evento_relacionado" Association="Self.fk_evento_relacionado">
+            <End Role="Relacionado" EntitySet="Relacionado" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
           <AssociationSet Name="fk_tarea_estado" Association="Self.fk_tarea_estado">
             <End Role="EstadoTarea" EntitySet="EstadoTarea" />
             <End Role="Tarea" EntitySet="Tarea" />
@@ -94,8 +131,7 @@
             <End Role="Tarea" EntitySet="Tarea" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbGeneralModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -191,7 +227,46 @@
             <End Role="Prioridad" EntitySet="Prioridad" />
             <End Role="Tarea" EntitySet="Tarea" />
           </AssociationSet>
+          <EntitySet Name="Evento" EntityType="dbGeneralModel.Evento" />
+          <EntitySet Name="Relacionado" EntityType="dbGeneralModel.Relacionado" />
+          <AssociationSet Name="fk_evento_relacionado" Association="dbGeneralModel.fk_evento_relacionado">
+            <End Role="Relacionado" EntitySet="Relacionado" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Relacionado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TodoDia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Fecha" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Relacionado1" Relationship="dbGeneralModel.fk_evento_relacionado" FromRole="Evento" ToRole="Relacionado" />
+        </EntityType>
+        <EntityType Name="Relacionado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Evento" Relationship="dbGeneralModel.fk_evento_relacionado" FromRole="Relacionado" ToRole="Evento" />
+        </EntityType>
+        <Association Name="fk_evento_relacionado">
+          <End Type="dbGeneralModel.Relacionado" Role="Relacionado" Multiplicity="1" />
+          <End Type="dbGeneralModel.Evento" Role="Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Relacionado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="Relacionado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -250,6 +325,27 @@
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evento">
+            <EntityTypeMapping TypeName="dbGeneralModel.Evento">
+              <MappingFragment StoreEntitySet="Evento">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TodoDia" ColumnName="TodoDia" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Relacionado" ColumnName="Relacionado" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relacionado">
+            <EntityTypeMapping TypeName="dbGeneralModel.Relacionado">
+              <MappingFragment StoreEntitySet="Relacionado">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

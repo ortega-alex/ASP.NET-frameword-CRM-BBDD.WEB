@@ -12,6 +12,9 @@
         <EntityTypeShape EntityType="dbGeneralModel.usuario" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="dbGeneralModel.fk_tarea_estado" ManuallyRouted="false" />
         <AssociationConnector Association="dbGeneralModel.fk_tarea_prioridad" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbGeneralModel.Evento" Width="1.5" PointX="7.625" PointY="4" />
+        <EntityTypeShape EntityType="dbGeneralModel.Relacionado" Width="1.5" PointX="5.375" PointY="4.375" />
+        <AssociationConnector Association="dbGeneralModel.fk_evento_relacionado" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
