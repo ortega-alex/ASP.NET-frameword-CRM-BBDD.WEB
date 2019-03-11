@@ -11,9 +11,7 @@ namespace Proyecto.Logica.BL
         SqlCommand _SqlCommand = null; //me permite ejecutar comandos SQL
         SqlDataAdapter _SqlDataAdapter = null; //me permite adaptar conjunto de datos SQL
         string stConexion = string.Empty;//cadena de conexion
-
-        SqlParameter _SqlParameter = null;
-
+        
         public PrioridadBl()
         {
             Connection obclsConexion = new Connection();

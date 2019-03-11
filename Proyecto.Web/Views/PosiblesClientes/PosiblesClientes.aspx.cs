@@ -52,7 +52,7 @@ namespace Proyecto.Web.Views.PosiblesClientes
         {
             try
             {
-                int options = string.IsNullOrEmpty(txtId.Text) ? 1 : 2; ;
+                int options = string.IsNullOrEmpty(txtId.Text) ? 1 : 2;
                 string stMensaje = string.Empty;
                 if (string.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese nombres ,";
                 if (string.IsNullOrEmpty(txtApellido.Text)) stMensaje += " Ingrese apellidos ,";

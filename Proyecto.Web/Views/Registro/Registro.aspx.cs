@@ -1,12 +1,7 @@
 ﻿using Proyecto.Logica.Models;
 using Proyecto.Web.Controllers;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Proyecto.Web.Views.Registro
 {

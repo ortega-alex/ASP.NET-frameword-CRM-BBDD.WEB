@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
@@ -15,9 +11,7 @@ namespace Proyecto.Logica.BL
         SqlCommand _SqlCommand = null; //me permite ejecutar comandos SQL
         SqlDataAdapter _SqlDataAdapter = null; //me permite adaptar conjunto de datos SQL
         string stConexion = string.Empty;//cadena de conexion
-
-        SqlParameter _SqlParameter = null;
-
+        
         public EstadoBl()
         {
             Connection obclsConexion = new Connection();
