@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoIncidenciasController.cs" />
     <Compile Include="DAL\EstadoIncidencia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -233,6 +234,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\TipoIncidencia.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -260,6 +262,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\TipoIncidencias\Create.cshtml" />
+    <Content Include="Views\TipoIncidencias\Delete.cshtml" />
+    <Content Include="Views\TipoIncidencias\Details.cshtml" />
+    <Content Include="Views\TipoIncidencias\Edit.cshtml" />
+    <Content Include="Views\TipoIncidencias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

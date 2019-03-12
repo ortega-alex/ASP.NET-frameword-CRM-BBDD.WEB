@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Proyecto.MVC.DAL.TipoIncidencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/TipoIncidencia.js"></script>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="form-row">
+    <div class="col-md-4 offset-md-8">
+        <input type="text" id="myInput" name="inpBusqueda" class="form-control" onkeyup="filtroBusqueda()" placeholder="Filtro de Busqueda" />
+    </div>
+</div>
+
+
+<table class="table" id="myTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning text-white" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info text-white" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger text-white" })
+            </td>
+        </tr>
+    }
+
+</table>
