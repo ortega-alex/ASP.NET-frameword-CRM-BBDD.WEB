@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Evento = Proyecto.Logica.Models.Evento;
 
 namespace Proyecto.Web.Controllers
 {
@@ -18,6 +19,21 @@ namespace Proyecto.Web.Controllers
                 List<Evento> eventos = JsonConvert.DeserializeObject<List<Evento>>(servicio.GetEventos());
                 return eventos;
             } catch (Exception ex) { throw ex;  }
+        }
+
+    }
+
+    public class EventoControllerXml
+    {
+        public object GetEventos_xml()
+        {
+            try
+            {
+                Servicios servicio = new Servicios();
+                var eventos = servicio.GetEventos_xml();
+                return eventos;
+            }
+            catch (Exception ex) { throw ex; }
         }
 
     }

@@ -31,6 +31,8 @@ namespace Proyecto.Web.wsServicios {
         
         private System.Threading.SendOrPostCallback GetEventosOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetEventos_xmlOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +75,9 @@ namespace Proyecto.Web.wsServicios {
         public event GetEventosCompletedEventHandler GetEventosCompleted;
         
         /// <remarks/>
+        public event GetEventos_xmlCompletedEventHandler GetEventos_xmlCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetEventos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string GetEventos() {
             object[] results = this.Invoke("GetEventos", new object[0]);
@@ -100,6 +105,33 @@ namespace Proyecto.Web.wsServicios {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetEventos_xml", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Evento[] GetEventos_xml() {
+            object[] results = this.Invoke("GetEventos_xml", new object[0]);
+            return ((Evento[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEventos_xmlAsync() {
+            this.GetEventos_xmlAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetEventos_xmlAsync(object userState) {
+            if ((this.GetEventos_xmlOperationCompleted == null)) {
+                this.GetEventos_xmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEventos_xmlOperationCompleted);
+            }
+            this.InvokeAsync("GetEventos_xml", new object[0], this.GetEventos_xmlOperationCompleted, userState);
+        }
+        
+        private void OnGetEventos_xmlOperationCompleted(object arg) {
+            if ((this.GetEventos_xmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEventos_xmlCompleted(this, new GetEventos_xmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -115,6 +147,132 @@ namespace Proyecto.Web.wsServicios {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Evento {
+        
+        private int idField;
+        
+        private Relacionado relacionadoField;
+        
+        private string nombreField;
+        
+        private string ubicacionField;
+        
+        private string todoDiaField;
+        
+        private string fechaField;
+        
+        private string descripcionField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Relacionado Relacionado {
+            get {
+                return this.relacionadoField;
+            }
+            set {
+                this.relacionadoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Ubicacion {
+            get {
+                return this.ubicacionField;
+            }
+            set {
+                this.ubicacionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TodoDia {
+            get {
+                return this.todoDiaField;
+            }
+            set {
+                this.todoDiaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                this.fechaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Relacionado {
+        
+        private int idField;
+        
+        private string descripcionField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
         }
     }
     
@@ -140,6 +298,32 @@ namespace Proyecto.Web.wsServicios {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    public delegate void GetEventos_xmlCompletedEventHandler(object sender, GetEventos_xmlCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEventos_xmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEventos_xmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Evento[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Evento[])(this.results[0]));
             }
         }
     }

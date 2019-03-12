@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Proyecto.Logica.BL;
+using Proyecto.Logica.Models;
+using System.Collections.Generic;
 using System.Web.Services;
 
 namespace Proyecto.Ws.Services
@@ -20,6 +22,13 @@ namespace Proyecto.Ws.Services
         {
             EventoBl eventoBl = new EventoBl();           
             return JsonConvert.SerializeObject(eventoBl.GetEventos());
+        }
+
+        [WebMethod]
+        public List<Evento> GetEventos_xml()
+        {
+            EventoBl eventoBl = new EventoBl();
+            return eventoBl.GetEventos();
         }
     }
 }

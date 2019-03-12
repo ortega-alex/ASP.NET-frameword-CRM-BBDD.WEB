@@ -13,7 +13,8 @@ namespace Proyecto.Web.Views.Evento
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-                GetEventos();
+                //GetEventos();
+                GetEventosXml();
         }
 
         public void GetEventos()
@@ -23,6 +24,24 @@ namespace Proyecto.Web.Views.Evento
                 EventoController eventoController = new EventoController();
                 List<Logica.Models.Evento> eventos = eventoController.GetEventos();
                 if (eventos.Count > 0)
+                    gvwDatos.DataSource = eventos;
+                else
+                    gvwDatos.DataSource = null;
+                gvwDatos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "menssaje", "<script> swal('Error!', '" + ex.Message + "!', 'error')</script>");
+            }
+        }
+
+        public void GetEventosXml()
+        {
+            try
+            {
+                EventoControllerXml eventoController = new EventoControllerXml();
+              var eventos = eventoController.GetEventos_xml();
+                if (eventos != null)
                     gvwDatos.DataSource = eventos;
                 else
                     gvwDatos.DataSource = null;
