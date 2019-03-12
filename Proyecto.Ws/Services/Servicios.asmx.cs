@@ -30,5 +30,14 @@ namespace Proyecto.Ws.Services
             EventoBl eventoBl = new EventoBl();
             return eventoBl.GetEventos();
         }
+
+        [WebMethod]
+        //public void CreateEvento(Evento evento)
+        public void CreateEvento(string objEvento)
+        {
+            EventoBl eventoBl = new EventoBl();
+            Evento evento = JsonConvert.DeserializeObject<Evento>(objEvento);
+            eventoBl.CreateEvento(evento);
+        }
     }
 }

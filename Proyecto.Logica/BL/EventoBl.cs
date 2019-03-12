@@ -35,5 +35,27 @@ namespace Proyecto.Logica.BL
             catch (Exception ex) { throw ex; }
         }
 
+        public void CreateEvento(Models.Evento evento)
+        {
+            try
+            {
+                using (dbGeneralEntities db = new dbGeneralEntities())
+                {
+                    db.Evento.Add(new Evento
+                    {
+                        Nombre = evento.Nombre,
+                        Fecha = evento.Fecha,
+                        TodoDia = evento.TodoDia,
+                        Ubicacion = evento.Ubicacion,
+                        Relacionado = evento.Relacionado.Id,
+                        Descripcion = evento.Descripcion
+                    });
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
     }
+
 }
