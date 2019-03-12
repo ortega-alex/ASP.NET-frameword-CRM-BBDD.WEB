@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8092db4de0d4dc9b5d74fc5e9b451e3" Name="Diagram1">
+        <EntityTypeShape EntityType="dbGeneralModel.EstadoIncidencia" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbGeneralModel.Incidencia" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbGeneralModel.IncidenciaComentarios" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbGeneralModel.TipoIncidencia" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="dbGeneralModel.fk_estado_incidencia" ManuallyRouted="false" />
+        <AssociationConnector Association="dbGeneralModel.fk_incidencia_comentario_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="dbGeneralModel.fk_incidencia_comentario_incidencia" ManuallyRouted="false" />
+        <AssociationConnector Association="dbGeneralModel.fk_tipo_incidencia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
